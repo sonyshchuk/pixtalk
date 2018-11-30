@@ -34,7 +34,7 @@ class RoomsController < ApplicationController
         end
 
         format.html { redirect_to @room, notice: 'Room was successfully created.' }
-        format.json { render :show, status: :created, location: @room }
+        format.json { render json: @room }
       else
         format.html { render :new }
         format.json { render json: @room.errors, status: :unprocessable_entity }
@@ -48,7 +48,7 @@ class RoomsController < ApplicationController
     respond_to do |format|
       if @room.update(room_params)
         format.html { redirect_to @room, notice: 'Room was successfully updated.' }
-        format.json { render :show, status: :ok, location: @room }
+        format.json { render json: @room }
       else
         format.html { render :edit }
         format.json { render json: @room.errors, status: :unprocessable_entity }
