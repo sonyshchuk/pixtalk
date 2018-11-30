@@ -1,0 +1,11 @@
+class CreateRooms < ActiveRecord::Migration[5.2]
+  def change
+    create_table :rooms do |t|
+      t.references :property, foreign_key: true
+      t.string :name
+      t.text :amenities
+
+      t.timestamps
+    end
+  end
+end

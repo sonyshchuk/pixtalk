@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @property.property_id %>
+</p>
+
+<p>
+  <strong>Rooms:</strong>
+  <%= @property.rooms.pluck(:name).join(', ') %>
+</p>
+
+<p>
+  <strong>Persons:</strong>
+  <%= @property.persons %>
+</p>
+
+<p>
+  <strong>Price per night:</strong>
+  <%= @property.price_per_night %>
+</p>
+
+<p>
+  <strong>Geo location:</strong>
+  <%= @property.geo_coordinates %>
+</p>
+
+<p>
+  <strong>General Amenities:</strong>
+  <%= @property.general_amenities %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @property.description %>
+</p>
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>
