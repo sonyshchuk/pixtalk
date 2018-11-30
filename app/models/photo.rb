@@ -6,7 +6,12 @@ class Photo < ApplicationRecord
     require 'exiftool'
 
     e = Exiftool.new(path.file.file)
-    e.to_hash.slice(:gps_longitude, :gps_latitude).values.join(',')
+    exif = e.to_hash.slice(:gps_longitude, :gps_latitude)
+
+    return exif.values if [:gps_longitude, :gps_latitude].all? {|s| exif.key? s }
+
+    # Amsterdam coast
+    [4.4752, 52.2702]
   end
 
 end
