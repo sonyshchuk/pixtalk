@@ -1,5 +1,10 @@
 class PropertiesController < ApplicationController
-  before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :set_property, only: [:show, :edit, :update, :destroy, :generate_final_template]
+
+  def generate_final_template
+    final_template = @property.generate_final_template
+    render json: final_template
+  end
 
   # GET /properties
   # GET /properties.json
