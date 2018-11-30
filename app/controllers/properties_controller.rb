@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy, :generate_final_template]
+  skip_before_action :verify_authenticity_token
 
   def generate_final_template
     final_template = @property.generate_final_template
@@ -34,7 +35,7 @@ class PropertiesController < ApplicationController
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: 'Property was successfully created.' }
-        format.json { render :show, status: :created, location: @property }
+        format.json { render json: @property }
       else
         format.html { render :new }
         format.json { render json: @property.errors, status: :unprocessable_entity }
@@ -48,7 +49,7 @@ class PropertiesController < ApplicationController
     respond_to do |format|
       if @property.update(property_params)
         format.html { redirect_to @property, notice: 'Property was successfully updated.' }
-        format.json { render :show, status: :ok, location: @property }
+        format.json { render json: @property }
       else
         format.html { render :edit }
         format.json { render json: @property.errors, status: :unprocessable_entity }
@@ -74,6 +75,6 @@ class PropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
-      params.require(:property).permit(:property_id, :room, :geo_location)
+      params.require(:property).permit(:property_id, :room, :geo_location, :description)
     end
 end
