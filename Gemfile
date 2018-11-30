@@ -67,3 +67,4 @@ gem 'exiftool_vendored'
 gem 'exiftool'
 
 gem 'carrierwave'
+gem 'carrierwave-base64'
