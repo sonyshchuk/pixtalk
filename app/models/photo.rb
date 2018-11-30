@@ -3,7 +3,10 @@ class Photo < ApplicationRecord
   mount_base64_uploader :path, PictureUploader
 
   def detect_geo_coordinates
-    "4.4752#{rand(9)},52.2702#{rand(9)}"
+    require 'exiftool'
+
+    e = Exiftool.new(path.file.file)
+    e.to_hash.slice(:gps_longitude, :gps_latitude).values.join(',')
   end
 
 end
