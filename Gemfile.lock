@@ -77,6 +77,10 @@ GEM
     equatable (0.5.0)
     erubi (1.7.1)
     execjs (2.7.0)
+    exiftool (1.2.1)
+      json
+    exiftool_vendored (10.65.0)
+      exiftool (>= 0.7.0)
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -86,6 +90,7 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (2.1.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -206,6 +211,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  exiftool_vendored
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
@@ -225,4 +231,4 @@ RUBY VERSION
    ruby 2.5.3p105
 
 BUNDLED WITH
-   1.16.6
+   1.17.1
