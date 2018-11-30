@@ -44,7 +44,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    return original_filename
-    #(0...8).map { (65 + rand(26)).chr }.join << original_filename
+    #return original_filename
+    (0...8).map { (65 + rand(26)).chr }.join << original_filename
   end
 end
