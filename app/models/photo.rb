@@ -11,7 +11,7 @@ class Photo < ApplicationRecord
     return exif.values if [:gps_longitude, :gps_latitude].all? {|s| exif.key? s }
 
     # Amsterdam coast
-    [52.2702, 4.4752]
+    [4.4752, 52.2702]
   end
 
 end
