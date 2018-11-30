@@ -29,7 +29,7 @@ class RoomsController < ApplicationController
 
     respond_to do |format|
       if @room.save
-        params[:room][:photos].each do |file|
+        params[:room][:photo_data].each do |file|
           @room.photos.create!(:path => file)
         end
 
@@ -74,6 +74,6 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:property_id, :name, :amenities, :photos)
+      params.require(:room).permit(:property_id, :name, :amenities, :photo_data => [])
     end
 end
